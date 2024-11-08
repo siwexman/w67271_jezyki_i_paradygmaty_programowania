@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\STUDIA\\V\\Języki i Paradygmaty Programowania\\w67271_jezyki_i_paradygmaty_programowania\\Lab4\\zadania\\zadania.fsproj": {}
+  },
+  "projects": {
+    "E:\\STUDIA\\V\\Języki i Paradygmaty Programowania\\w67271_jezyki_i_paradygmaty_programowania\\Lab4\\zadania\\zadania.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\STUDIA\\V\\Języki i Paradygmaty Programowania\\w67271_jezyki_i_paradygmaty_programowania\\Lab4\\zadania\\zadania.fsproj",
+        "projectName": "zadania",
+        "projectPath": "E:\\STUDIA\\V\\Języki i Paradygmaty Programowania\\w67271_jezyki_i_paradygmaty_programowania\\Lab4\\zadania\\zadania.fsproj",
+        "packagesPath": "C:\\Users\\Karol\\.nuget\\packages\\",
+        "outputPath": "E:\\STUDIA\\V\\Języki i Paradygmaty Programowania\\w67271_jezyki_i_paradygmaty_programowania\\Lab4\\zadania\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Karol\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\sdk\\8.0.403\\FSharp\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[8.0.401, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
