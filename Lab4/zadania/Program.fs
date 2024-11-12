@@ -47,19 +47,15 @@ let kursyWymiany =
         ("GBP", "EUR"), 1.14
     ]
 
-// Funkcja obliczająca przeliczoną kwotę
 let przeliczKwote (kwota: float) (walutaZrodlowa: string) (walutaDocelowa: string) =
-    // Sprawdzenie, czy kombinacja walut istnieje w mapie
     match kursyWymiany.TryFind (walutaZrodlowa, walutaDocelowa) with
     | Some kurs -> kwota * kurs
     | None -> 
         printfn "Przelicznik dla tej kombinacji walut nie jest dostępny."
         0.0
 
-// Główna funkcja programu
 [<EntryPoint>]
 let main argv =
-    // Pobranie danych od użytkownika
     printfn "Podaj kwotę do przeliczenia:"
     let kwotaStr = Console.ReadLine()
     let kwota = float kwotaStr
@@ -70,12 +66,9 @@ let main argv =
     printfn "Podaj walutę docelową (np. USD, EUR, GBP):"
     let walutaDocelowa = Console.ReadLine().ToUpper()
 
-    // Przeliczenie kwoty
     let przeliczonaKwota = przeliczKwote kwota walutaZrodlowa walutaDocelowa
 
-    // Wyświetlenie wyniku
     if przeliczonaKwota > 0.0 then
         printfn "Przeliczona kwota: %.2f %s" przeliczonaKwota walutaDocelowa
 
-    // Zakończenie programu
     0
