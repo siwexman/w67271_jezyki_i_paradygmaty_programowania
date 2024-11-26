@@ -1,6 +1,6 @@
 import re 
 from collections import Counter
-from langdetect import detect
+from langdetect import detect # type: ignore
 from stopWords import stopWords
 
 def detectLanguage(text):
@@ -15,7 +15,8 @@ def isStopWord(word):
         return False
     
 def countCharacters(text):
-    return len(text.replace(" ",""))
+    characters = len(text.replace(" ",""))
+    return characters
 
 
 def analyzeText(text):
@@ -23,10 +24,7 @@ def analyzeText(text):
     characters = countCharacters(text)
     senteces = re.split(r'[.!?]+', text.strip())
     senteces = [sentence.strip() for sentence in senteces if sentence.strip()]
-
     words = re.findall(r'\b\w+\b',text.lower())
-
-    countCharacters(words)
 
     wordCount = len(words)
     senteceCount = len(senteces)
@@ -55,17 +53,59 @@ def analyzeText(text):
 
     return result
 
+def readFile(filename):
+    with open(filename + '.txt', 'r', encoding='utf-8') as file:
+        lines = file.read()
+
+    print(lines)
+    return lines
+
 if __name__ == "__main__":
-    sample =  """Python is a powerful programming language. It is widely used in data analysis, machine learning, and web development. Python's simplicity makes it popular among beginners and experts alike!"""
+    filename = input("Wpisz nazwę pliku txt: ").strip()
 
-    analysis = analyzeText(sample)
+    text = readFile(filename)
 
-    print("Statystki tekstu:")
-    print(f"Liczba znaków: {analysis['characterCount']}")
-    print(f"Liczba słów: {analysis['wordCount']}")
-    print(f"Liczba zdań: {analysis['sentenceCount']}")
-    print("Najczęściej występujące słowa:")
+    analysis = analyzeText(text)
+
+
+    # print("Statystki tekstu:")
+    # print(f"Liczba wszystkich znaków: {analysis['characterCount']}")
+    # print(f"Liczba słów: {analysis['wordCount']}")
+    # print(f"Liczba zdań: {analysis['sentenceCount']}")
+    # print("Pięć najczęściej występujących słów:")
+    # for word, freq in analysis['mostCommonWords']:
+    #     print(f"{word}: {freq}")
+    # print(f"Najdłuższe zdanie: {analysis['longestSentence']}")
+    # print(f"Długość najdłużeszego zdania: {analysis['longestSentenceLength']} słów")
+
+    # text to display in txt file
+    commonWords = ""
     for word, freq in analysis['mostCommonWords']:
-        print(f"{word}: {freq}")
-    print(f"Najdłuższe zdanie: {analysis['longestSentence']}")
-    print(f"Długość najdłużeszego zdania: {analysis['longestSentenceLength']} słów")
+        if commonWords == "":
+            commonWords = commonWords + f"{word}: {freq}"
+        else:
+            commonWords = commonWords + f"\n{word}: {freq}"
+    
+    analitics = [
+        "Statystki tekstu:",
+        f"Liczba wszystkich znaków: {analysis['characterCount']}",
+        f"Liczba słów: {analysis['wordCount']}",
+        f"Liczba zdań: {analysis['sentenceCount']}",
+        "Pięć najczęściej występujących słów:",
+        commonWords,
+        f"Najdłuższe zdanie: {analysis['longestSentence']}",
+        f"Długość najdłużeszego zdania: {analysis['longestSentenceLength']} słów"
+        ]
+
+    stringAnalitics = ''
+
+    for sentence in analitics:
+        if stringAnalitics == '':
+            stringAnalitics = stringAnalitics + sentence
+        else:
+            stringAnalitics = stringAnalitics + '\n' + sentence
+    
+            
+
+    with open('analitics.txt', 'w',encoding='utf-8') as file:
+        file.write(stringAnalitics)
