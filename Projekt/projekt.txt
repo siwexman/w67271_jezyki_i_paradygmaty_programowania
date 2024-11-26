@@ -1,0 +1,3 @@
+Analiza tekstu
+Opis: Program, który przyjmuje tekst jako wejście, a następnie analizuje liczbę słów, liczbę zdań, najczęściej występujące słowa oraz inne statystyki tekstowe.
+Zakres: Praca z listami i sekwencjami, operacje na stringach, funkcje wyższego rzędu.
