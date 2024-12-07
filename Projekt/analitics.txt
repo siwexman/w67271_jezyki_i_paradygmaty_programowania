@@ -1,4 +1,5 @@
 Statystki tekstu:
+Język tekstu: Polski
 Liczba wszystkich znaków: 229
 Liczba słów: 35
 Liczba zdań: 2

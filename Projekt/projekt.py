@@ -4,9 +4,7 @@ from langdetect import detect # type: ignore
 from stopWords import stopWords
 
 def detectLanguage(text):
-    lang = detect(text)
-
-    return lang
+    return detect(text)
 
 def isStopWord(word):
     if word in stopWords:
@@ -20,11 +18,11 @@ def countCharacters(text):
 
 
 def analyzeText(text):
-    lang = detectLanguage(text)
+    language = detectLanguage(text)
     characters = countCharacters(text)
     senteces = re.split(r'[.!?]+', text.strip())
     senteces = [sentence.strip() for sentence in senteces if sentence.strip()]
-    words = re.findall(r'\b\w+\b',text.lower())
+    words = re.findall(r'\b\w+\b', text.lower())
 
     wordCount = len(words)
     senteceCount = len(senteces)
@@ -43,21 +41,22 @@ def analyzeText(text):
     longestSentenceLength = len(longestSentence.split())
 
     result = {
+        "language": language,
         "characterCount": characters,
         "wordCount": wordCount,
         "sentenceCount": senteceCount,
         "mostCommonWords": mostCommonWord,
         "longestSentence": longestSentence,
-        "longestSentenceLength": longestSentenceLength        
+        "longestSentenceLength": longestSentenceLength
     }
 
     return result
 
 def readFile(filename):
     with open(filename + '.txt', 'r', encoding='utf-8') as file:
-        lines = file.read()
+        lines = file.readlines()
 
-    print(lines)
+    print(len(lines))
     return lines
 
 if __name__ == "__main__":
@@ -66,17 +65,6 @@ if __name__ == "__main__":
     text = readFile(filename)
 
     analysis = analyzeText(text)
-
-
-    # print("Statystki tekstu:")
-    # print(f"Liczba wszystkich znaków: {analysis['characterCount']}")
-    # print(f"Liczba słów: {analysis['wordCount']}")
-    # print(f"Liczba zdań: {analysis['sentenceCount']}")
-    # print("Pięć najczęściej występujących słów:")
-    # for word, freq in analysis['mostCommonWords']:
-    #     print(f"{word}: {freq}")
-    # print(f"Najdłuższe zdanie: {analysis['longestSentence']}")
-    # print(f"Długość najdłużeszego zdania: {analysis['longestSentenceLength']} słów")
 
     # text to display in txt file
     commonWords = ""
@@ -88,6 +76,7 @@ if __name__ == "__main__":
     
     analitics = [
         "Statystki tekstu:",
+        f"Język tekstu: {analysis['language']}",
         f"Liczba wszystkich znaków: {analysis['characterCount']}",
         f"Liczba słów: {analysis['wordCount']}",
         f"Liczba zdań: {analysis['sentenceCount']}",
