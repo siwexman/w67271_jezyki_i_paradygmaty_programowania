@@ -1,14 +1,13 @@
 Statystki tekstu:
-Język tekstu: Polski
-Liczba wszystkich znaków: 229
-Liczba słów: 35
-Liczba zdań: 2
+Język tekstu: pl
+Liczba wszystkich znaków: 890
+Liczba słów: 137
+Liczba zdań: 11
 Pięć najczęściej występujących słów:
-liczbę: 2
-analiza: 1
-tekstu: 1
-opis: 1
-program: 1
-Najdłuższe zdanie: Analiza tekstu
-Opis: Program, który przyjmuje tekst jako wejście, a następnie analizuje liczbę słów, liczbę zdań, najczęściej występujące słowa oraz inne statystyki tekstowe
-Długość najdłużeszego zdania: 23 słów
+strzeleckiego: 3
+miały: 2
+zajęcia: 2
+związku: 2
+strzelec: 2
+Najdłuższe zdanie: Opiekę nad bracią strzelecką podczas rzeczowych zajęć sprawowali: starszy inspektor Związku Strzeleckiego "STRZELEC" Józefa Piłsudskiego - Barbara Gajewska oraz inspektorzy ZS "S" JP - Grzegorz Gajewski i Paweł Rejman
+Długość najdłużeszego zdania: 29 słów
